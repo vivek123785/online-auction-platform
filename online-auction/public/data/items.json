@@ -1,0 +1,17 @@
+{
+    "items": [
+      {
+        "id": 1,
+        "title": "Vintage Painting",
+        "description": "A beautiful vintage oil painting.",
+        "price": 100
+      },
+      {
+        "id": 2,
+        "title": "Antique Vase",
+        "description": "An antique vase from the 19th century.",
+        "price": 150
+      }
+    ]
+  }
+  

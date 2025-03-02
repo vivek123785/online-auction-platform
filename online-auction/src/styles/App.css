@@ -1,0 +1,33 @@
+/* src/styles/App.css */
+
+/* General layout and font settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+  }
+  
+  main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  /* General page container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  

@@ -1,57 +1,52 @@
-// src/App.js
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';   
-import Auction from './pages/Auction'; 
-import Contact from './pages/Contact'; 
-import About from './pages/About'; 
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Auction from "./pages/Auction";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Login from "./pages/Login"; // ✅ Fixed import path 
+import SignUp from "./pages/signUp";
+import { fetchFeaturedItems } from "./services/api";
 
 function App() {
-  // State to hold the auction items, loading, and error state
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch auction items from the backend API when the component mounts
   useEffect(() => {
-    fetch('http://localhost:5000/api/items') // Your backend API endpoint
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json(); // Parse the response as JSON
-      })
-      .then((data) => {
-        setItems(data); // Store the fetched items in state
-        setLoading(false); // Set loading to false once data is fetched
-      })
-      .catch((error) => {
-        setError(error); // If an error occurs, store it in state
-        setLoading(false); // Set loading to false
-      });
-  }, []); // Empty dependency array ensures this effect runs only once
+    const loadItems = async () => {
+      try {
+        const data = await fetchFeaturedItems();
+        setItems(data);
+      } catch (err) {
+        console.error("Error fetching items:", err);
+        setError("Failed to load featured auction items.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (loading) {
-    return <div>Loading...</div>; // Show loading message while data is being fetched
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>; // Show error message if fetching fails
-  }
+    loadItems();
+  }, []);
 
   return (
     <Router>
       <Header />
-      <div className="content">
+      <main className="content">
+        {loading && <div className="loading">Loading auction items...</div>}
+        {error && <div className="error-message">{error}</div>}
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/auction" element={<Auction items={items} />} /> {/* Pass items as props */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/auction" element={<Auction items={items} />} />
         </Routes>
-      </div>
+      </main>
       <Footer />
     </Router>
   );

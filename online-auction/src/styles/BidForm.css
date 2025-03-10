@@ -1,32 +1,60 @@
-/* src/styles/BidForm.css */
+  /* src/styles/BidForm.css */
 
 .bid-form {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Input Field Styling */
+.bid-form input {
+  padding: 12px;
+  font-size: 16px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bid-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Bid Button Styling */
+.bid-form button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.bid-form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .bid-form {
+      flex-direction: column;
+      gap: 10px;
   }
-  
+
   .bid-form input {
-    padding: 12px;
-    font-size: 16px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+      width: 100%;
   }
-  
+
   .bid-form button {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+      width: 100%;
   }
-  
-  .bid-form button:hover {
-    background-color: #0056b3;
-  }
-  
+}

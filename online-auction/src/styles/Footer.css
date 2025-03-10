@@ -1,17 +1,37 @@
-/* src/components/Footer.css */
+  /* src/styles/Footer.css */
+
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+}
+
+/* Footer Links */
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer a:hover {
+  color: #f8d210; /* Soft yellow hover effect */
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .footer {
+      font-size: 14px;
+      padding: 15px;
   }
-  
+
   .footer a {
-    color: #fff;
-    text-decoration: none;
+      display: block;
+      margin: 5px 0;
   }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  
+}

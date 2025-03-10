@@ -1,14 +1,47 @@
-/* src/index.css */
+  /* src/index.css */
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Global styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .App {
-    text-align: center;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #afc136;
+  color: #333; /* Ensures good readability */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure app container takes full height */
+#root, .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* Responsive typography */
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* Smooth scrolling for better user experience */
+html {
+  scroll-behavior: smooth;
+}

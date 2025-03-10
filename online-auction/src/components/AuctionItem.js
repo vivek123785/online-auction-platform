@@ -1,13 +1,21 @@
-// src/components/AuctionItem.js
-import React from 'react';
-import '../styles/AuctionItem.css'; // Correct import path for CSS
+import React from "react";
+import "../styles/AuctionItem.css";
 
-const AuctionItem = ({ title, description, price }) => {
+const AuctionItem = ({ item, onBid }) => {
+  if (!item) {
+    return <div className="auction-item-error">Item data is missing</div>;
+  }
+
   return (
     <div className="auction-item">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <p className="price">${price}</p>
+      <div className="auction-item-details">
+        <h3>{item.title || "Untitled Item"}</h3>
+        <p>{item.description || "No description available."}</p>
+        <p className="price">
+          ${item.currentBid ? item.currentBid.toLocaleString() : item.startingBid?.toLocaleString() || "0"}
+        </p>
+        <button className="bid-button" onClick={() => onBid(item._id)}>Place Bid</button>
+      </div>
     </div>
   );
 };

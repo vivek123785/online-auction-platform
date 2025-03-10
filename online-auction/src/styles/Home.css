@@ -1,0 +1,258 @@
+/* src/styles/Home.css */
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  background: url("../assets/auction-bg.jpg") no-repeat center center/cover;
+  color: #ffffff;
+  padding: 80px 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 350px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+.hero h1, .hero p, .cta-button {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #ff9800;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Featured Auctions */
+.featured-auctions {
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.featured-auctions h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.auction-item {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auction-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.auction-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.auction-item h3 {
+  font-size: 1.6rem;
+  margin-top: 15px;
+}
+
+.auction-item p {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.auction-item a {
+  display: block;
+  margin-top: 15px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.auction-item a:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* How It Works */
+.how-it-works {
+  background: #f4f4f4;
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.how-it-works h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.how-it-works ul {
+  list-style: none;
+  padding: 0;
+}
+
+.how-it-works li {
+  font-size: 1.2rem;
+  padding: 12px 0;
+  line-height: 1.6;
+  color: #444;
+  background: url("../assets/check-icon.png") no-repeat left center;
+  background-size: 20px;
+  padding-left: 30px;
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.testimonial-item {
+  background: #fff3cd;
+  padding: 20px;
+  border-left: 5px solid #ff9800;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.testimonial-item:hover {
+  transform: scale(1.03);
+}
+
+.testimonial-item p {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.testimonial-item span {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Countdown Timer */
+.countdown {
+  background: #333;
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.countdown h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #f4f4f4;
+}
+
+.timer {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff9800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: countdown-tick 1s infinite alternate;
+}
+
+/* Countdown Animation */
+@keyframes countdown-tick {
+  0% {
+    color: #ff9800;
+  }
+  100% {
+    color: #ff5722;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+  }
+
+  .featured-auctions h2,
+  .how-it-works h2,
+  .testimonials h2,
+  .countdown h2 {
+    font-size: 1.8rem;
+  }
+
+  .timer {
+    font-size: 2rem;
+  }
+}

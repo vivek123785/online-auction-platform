@@ -1,20 +1,60 @@
 /* src/styles/Header.css */
-nav ul {
-  list-style-type: none;
+
+.header-nav {
+  background-color: #333;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
   padding: 0;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 20px;
+/* Navigation Links */
+.nav-list li {
+  margin: 0 15px;
 }
 
-nav ul li a {
+.nav-list a, .logout-button {
   text-decoration: none;
-  font-weight: bold;
-  color: #ff8c00;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
 }
 
-nav ul li a:hover {
-  color: #b30092;
+.nav-list a:hover, .logout-button:hover {
+  background: #555;
+  transform: scale(1.05);
+}
+
+/* Logout Button */
+.logout-button {
+  background: red;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background: darkred;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-list li {
+    margin: 10px 0;
+  }
 }

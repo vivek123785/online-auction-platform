@@ -1,15 +1,17 @@
-const mongoose = require('mongoose');
+ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/auctionDB'; // Default local DB
+    const conn = await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
+      useUnifiedTopology: true
     });
-    console.log('MongoDB connected');
+
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error('Error connecting to MongoDB', error);
-    process.exit(1);
+    console.error(`❌ MongoDB Connection Error: ${error.message}`);
+    process.exit(1); // Exit process with failure
   }
 };
 

@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Auction App",
+  "name": "Auction Platform - Buy & Sell Unique Items",
+  "description": "Bid on rare and exclusive items in our online auction marketplace.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +19,10 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#ff9800",
+  "background_color": "#ffffff",
+  "categories": ["shopping", "business", "lifestyle"],
+  "orientation": "portrait"
 }
